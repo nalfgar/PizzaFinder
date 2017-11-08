@@ -6,8 +6,11 @@ import pl.dareks.utils.Config;
 import pl.dareks.utils.HttpUtils;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PizzaService {
+    private List<PizzaData> pizzaDataList = new ArrayList<PizzaData>();
 
 
     public void makeCall(String city, String street) {
