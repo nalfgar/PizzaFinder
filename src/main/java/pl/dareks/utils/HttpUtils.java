@@ -25,6 +25,7 @@ public class HttpUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 }

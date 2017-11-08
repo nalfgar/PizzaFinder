@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.dareks.services.PizzaService;
+import pl.dareks.utils.HttpUtils;
 
 public class Main extends Application {
+    PizzaService pizzaService = new PizzaService();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -14,6 +17,8 @@ public class Main extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+
+       pizzaService.makeCall("Cracow", "Grodzka");
     }
 
 
