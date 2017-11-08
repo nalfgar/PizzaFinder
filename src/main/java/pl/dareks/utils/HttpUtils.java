@@ -8,6 +8,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 
 public class HttpUtils {
+
     public static String makeHttpRequest(String url){
         StringBuilder stringBuilder = new StringBuilder();
         try {
