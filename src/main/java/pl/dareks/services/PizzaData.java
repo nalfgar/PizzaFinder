@@ -1,42 +1,14 @@
 package pl.dareks.services;
 
 public class PizzaData {
-    private String city;
-    private String street;
-    private int radius;
     private String name;
-    private float opinion;
+    private String formatted_address;
+    private float rating;
 
-    public PizzaData(String city, String street, int radius, String name, float opinion) {
-        this.city = city;
-        this.street = street;
-        this.radius = radius;
+    public PizzaData(String name, String formatted_address, float rating) {
         this.name = name;
-        this.opinion = opinion;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
+        this.formatted_address = formatted_address;
+        this.rating = rating;
     }
 
     public String getName() {
@@ -47,12 +19,20 @@ public class PizzaData {
         this.name = name;
     }
 
-    public float getOpinion() {
-        return opinion;
+    public String getFormatted_address() {
+        return formatted_address;
     }
 
-    public void setOpinion(float opinion) {
-        this.opinion = opinion;
+    public void setFormatted_address(String formatted_address) {
+        this.formatted_address = formatted_address;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
     @Override
@@ -62,31 +42,25 @@ public class PizzaData {
 
         PizzaData pizzaData = (PizzaData) o;
 
-        if (radius != pizzaData.radius) return false;
-        if (Float.compare(pizzaData.opinion, opinion) != 0) return false;
-        if (city != null ? !city.equals(pizzaData.city) : pizzaData.city != null) return false;
-        if (street != null ? !street.equals(pizzaData.street) : pizzaData.street != null) return false;
-        return name != null ? name.equals(pizzaData.name) : pizzaData.name == null;
+        if (Float.compare(pizzaData.rating, rating) != 0) return false;
+        if (name != null ? !name.equals(pizzaData.name) : pizzaData.name != null) return false;
+        return formatted_address != null ? formatted_address.equals(pizzaData.formatted_address) : pizzaData.formatted_address == null;
     }
 
     @Override
     public int hashCode() {
-        int result = city != null ? city.hashCode() : 0;
-        result = 31 * result + (street != null ? street.hashCode() : 0);
-        result = 31 * result + radius;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (opinion != +0.0f ? Float.floatToIntBits(opinion) : 0);
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (formatted_address != null ? formatted_address.hashCode() : 0);
+        result = 31 * result + (rating != +0.0f ? Float.floatToIntBits(rating) : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "PizzaData{" +
-                "city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", radius=" + radius +
-                ", name='" + name + '\'' +
-                ", opinion=" + opinion +
+                "name='" + name + '\'' +
+                ", formatted_address='" + formatted_address + '\'' +
+                ", rating=" + rating +
                 '}';
     }
 }
