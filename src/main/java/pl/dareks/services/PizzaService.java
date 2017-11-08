@@ -20,7 +20,7 @@ public class PizzaService {
         JSONArray results = root.getJSONArray("results");
 
         for (int i = 0; i < results.length(); i++) {
-            JSONObject in = results.getJSONObject(i);
+            JSONObject in = results.getJSONObject(i); //
             double rating = in.getDouble("rating");
             String formatedAdress = in.getString("formatted_address");
             String name = in.getString("name");
