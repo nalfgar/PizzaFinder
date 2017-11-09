@@ -36,7 +36,8 @@ public class PizzaService {
     public void makeCall(String city, String street, String restaurantType) {
         //executorService.execute(()->{
             parseJsonData(HttpUtils.makeHttpRequest(Config.API_URL + city +"+" +restaurantType + street + Config.API_ID ));
-        System.out.println(restaurantType);
+
+        System.out.println("xxx "+ Config.API_URL + city +"+" +restaurantType + street + Config.API_ID );
       // HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID );
         //});
     }
