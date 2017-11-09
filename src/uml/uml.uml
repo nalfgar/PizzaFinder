@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="640.5" y="0.0">pl.dareks.utils.PizzaModel</node>
+    <node x="0.0" y="213.0">pl.dareks.utils.Config</node>
+    <node x="309.5" y="561.0">pl.dareks.controllers.Controller</node>
+    <node x="423.0" y="256.5">pl.dareks.services.PizzaObserver</node>
+    <node x="281.0" y="256.5">pl.dareks.utils.HttpUtils</node>
+    <node x="133.09294871794873" y="387.0">pl.dareks.services.PizzaService</node>
+    <node x="203.84294871794873" y="0.0">pl.dareks.services.PizzaData</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pl.dareks.services.PizzaService" target="pl.dareks.services.PizzaData">
+      <point x="18.25" y="-62.0" />
+      <point x="297.34294871794873" y="367.0" />
+      <point x="270.5" y="367.0" />
+      <point x="270.5" y="193.0" />
+      <point x="353.7596153846154" y="193.0" />
+      <point x="21.416666666666686" y="76.5" />
+    </edge>
+    <edge source="pl.dareks.services.PizzaObserver" target="pl.dareks.services.PizzaData">
+      <point x="0.0" y="-18.5" />
+      <point x="501.0" y="193.0" />
+      <point x="396.59294871794873" y="193.0" />
+      <point x="64.25000000000003" y="76.5" />
+    </edge>
+    <edge source="pl.dareks.controllers.Controller" target="pl.dareks.services.PizzaObserver">
+      <point x="32.125" y="-105.5" />
+      <point x="470.125" y="531.0" />
+      <point x="548.5929487179487" y="531.0" />
+      <point x="548.5929487179487" y="367.0" />
+      <point x="553.0" y="367.0" />
+      <point x="52.0" y="18.5" />
+    </edge>
+    <edge source="pl.dareks.services.PizzaService" target="pl.dareks.utils.Config">
+      <point x="-127.75" y="-62.0" />
+      <point x="151.34294871794873" y="367.0" />
+      <point x="113.5" y="367.0" />
+      <point x="0.0" y="62.0" />
+    </edge>
+    <edge source="pl.dareks.controllers.Controller" target="pl.dareks.services.PizzaData">
+      <point x="96.375" y="-105.5" />
+      <point x="534.375" y="541.0" />
+      <point x="589.5" y="541.0" />
+      <point x="589.5" y="183.0" />
+      <point x="439.4262820512821" y="183.0" />
+      <point x="107.08333333333337" y="76.5" />
+    </edge>
+    <edge source="pl.dareks.services.PizzaService" target="pl.dareks.utils.HttpUtils">
+      <point x="54.75" y="-62.0" />
+      <point x="333.84294871794873" y="367.0" />
+      <point x="342.0" y="367.0" />
+      <point x="0.0" y="18.5" />
+    </edge>
+    <edge source="pl.dareks.controllers.Controller" target="pl.dareks.services.PizzaService">
+      <point x="-32.125" y="-105.5" />
+      <point x="405.875" y="541.0" />
+      <point x="352.09294871794873" y="541.0" />
+      <point x="73.0" y="62.0" />
+    </edge>
+    <edge source="pl.dareks.services.PizzaService" target="pl.dareks.services.PizzaObserver">
+      <point x="127.75" y="-62.0" />
+      <point x="406.84294871794873" y="367.0" />
+      <point x="501.0" y="367.0" />
+      <point x="0.0" y="18.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.2000000000000002" x="235.0" y="205.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

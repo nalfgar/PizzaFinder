@@ -1,5 +1,6 @@
 package pl.dareks.services;
 
+import javafx.scene.control.MultipleSelectionModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import pl.dareks.utils.Config;
@@ -32,9 +33,10 @@ public class PizzaService {
             observer.onPizzaUpdate(data);
         }
     }
-    public void makeCall(String city, String street) {
+    public void makeCall(String city, String street, String restaurantType) {
         //executorService.execute(()->{
-            parseJsonData(HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID ));
+            parseJsonData(HttpUtils.makeHttpRequest(Config.API_URL + city +"+" +restaurantType + street + Config.API_ID ));
+        System.out.println(restaurantType);
       // HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID );
         //});
     }
