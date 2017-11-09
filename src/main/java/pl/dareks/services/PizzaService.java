@@ -5,25 +5,37 @@ import org.json.JSONObject;
 import pl.dareks.utils.Config;
 import pl.dareks.utils.HttpUtils;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class PizzaService {
 
     private List<PizzaData> pizzaDataList = new ArrayList<PizzaData>();
     private static PizzaService ourInstance = new PizzaService();
+    private List<PizzaObserver> observers;
     public static PizzaService getService() {
         return ourInstance;
     }
     //private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    public void makeCall(String city) {
+
+    public PizzaService() {
+        observers= new ArrayList<>();
+    }
+
+    public void registerObserver(PizzaObserver observer)   {
+        observers.add(observer);
+    }
+
+    private void notifyObservers(PizzaData data) {
+        for (PizzaObserver observer : observers) {
+            observer.onPizzaUpdate(data);
+        }
+    }
+    public void makeCall(String city, String street) {
         //executorService.execute(()->{
-            parseJsonData(HttpUtils.makeHttpRequest(Config.API_URL + city+ Config.API_ID ));
-//       HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID );
+            parseJsonData(HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID ));
+      // HttpUtils.makeHttpRequest(Config.API_URL + city +"+" + street + Config.API_ID );
         //});
     }
 
@@ -45,6 +57,7 @@ public class PizzaService {
             data.setRating((float) rating);
 
             data.setFormatted_address(formated_address);
+            notifyObservers(data);
         }
 
 

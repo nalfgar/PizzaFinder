@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import pl.dareks.services.PizzaData;
+import pl.dareks.services.PizzaObserver;
 import pl.dareks.services.PizzaService;
 import pl.dareks.utils.PizzaModel;
 import javafx.scene.control.Button;
@@ -14,30 +15,39 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable{
+public class Controller implements Initializable, PizzaObserver {
     @FXML
-    Button button1;
+    Button buttonSzukaj;
     @FXML
     Label label1;
     @FXML
-    TextField textField1;
+    TextField textFieldMiasto;
+
     @FXML
-    TextField textField2;
+    TextField textFieldShow;
     @FXML
-    TextField textField3;
+    TextField textFieldStreet;
 
 
     private PizzaService pizzaService = PizzaService.getService();
 
 
     private void showPizza() {
-        pizzaService.makeCall(textField1.getText());
+        pizzaService.makeCall(textFieldMiasto.getText(),textFieldStreet.getText());
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        button1.setOnMouseClicked(e->showPizza());
+        buttonSzukaj.setOnMouseClicked(e->showPizza());
+      pizzaService.registerObserver(this);
+    }
+
+    @Override
+    public void onPizzaUpdate(PizzaData data) {
+        Platform.runLater(()->textFieldShow.setText(data.getName()+data.getFormatted_address()+data.getRating()));
+        //Platform.runLater(()->textFieldShow.setText(data.getName()+data.getFormatted_address()+data.getRating()));
+
 
     }
 }
