@@ -1,8 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="pl.dareks.controllers.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="button1" layoutX="208.0" layoutY="325.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="144.0" text="Szukaj" textAlignment="JUSTIFY" textFill="#1b827f" />
+      <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="30.0" prefHeight="90.0" prefWidth="372.0" text="Pizzellent" textFill="#27bc92">
+         <font>
+            <Font name="System Bold Italic" size="49.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textField1" alignment="CENTER" layoutX="67.0" layoutY="150.0" prefHeight="66.0" prefWidth="472.0" promptText="miasto">
+         <font>
+            <Font name="Gabriola" size="31.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textField3" alignment="CENTER" layoutX="65.0" layoutY="254.0" prefHeight="42.0" prefWidth="472.0" text="Pizzerie oceniane powyżej 4.4">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

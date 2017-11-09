@@ -4,11 +4,14 @@ public class PizzaData {
     private String name;
     private String formatted_address;
     private float rating;
+    private String city;
 
-    public PizzaData(String name, String formatted_address, float rating) {
+
+    public PizzaData() {
         this.name = name;
         this.formatted_address = formatted_address;
         this.rating = rating;
+        this.city = city;
     }
 
     public String getName() {
@@ -35,32 +38,14 @@ public class PizzaData {
         this.rating = rating;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PizzaData pizzaData = (PizzaData) o;
-
-        if (Float.compare(pizzaData.rating, rating) != 0) return false;
-        if (name != null ? !name.equals(pizzaData.name) : pizzaData.name != null) return false;
-        return formatted_address != null ? formatted_address.equals(pizzaData.formatted_address) : pizzaData.formatted_address == null;
+    public String getCity() {
+        return city;
     }
 
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (formatted_address != null ? formatted_address.hashCode() : 0);
-        result = 31 * result + (rating != +0.0f ? Float.floatToIntBits(rating) : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "PizzaData{" +
-                "name='" + name + '\'' +
-                ", formatted_address='" + formatted_address + '\'' +
-                ", rating=" + rating +
-                '}';
+    public void setCity(String city) {
+        this.city = city;
     }
 }
+
+
+
