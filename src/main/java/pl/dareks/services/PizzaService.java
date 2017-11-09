@@ -27,7 +27,6 @@ public class PizzaService {
         //});
     }
 
-
     private void parseJsonData(String text) {
         JSONObject root = new JSONObject(text);
         JSONArray results = root.getJSONArray("results");
