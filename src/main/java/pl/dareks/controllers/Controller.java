@@ -3,6 +3,7 @@ package pl.dareks.controllers;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
 import pl.dareks.services.PizzaData;
 import pl.dareks.services.PizzaObserver;
 import pl.dareks.services.PizzaService;
@@ -24,7 +25,7 @@ public class Controller implements Initializable, PizzaObserver {
     TextField textFieldMiasto;
 
     @FXML
-    TextField textFieldShow;
+    TextArea textAreaShow;
     @FXML
     TextField textFieldStreet;
 
@@ -45,7 +46,7 @@ public class Controller implements Initializable, PizzaObserver {
 
     @Override
     public void onPizzaUpdate(PizzaData data) {
-        Platform.runLater(()->textFieldShow.setText(data.getName()+data.getFormatted_address()+data.getRating()));
+        Platform.runLater(()->textAreaShow.setText(data.getName()+"\n"+data.getFormatted_address()+"\n"+data.getRating()));
         //Platform.runLater(()->textFieldShow.setText(data.getName()+data.getFormatted_address()+data.getRating()));
 
 

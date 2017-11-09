@@ -42,26 +42,23 @@ public class PizzaService {
     private void parseJsonData(String text) {
         JSONObject root = new JSONObject(text);
         JSONArray results = root.getJSONArray("results");
+        PizzaData data = new PizzaData();
+        float maxRating = 0;
 
         for (int i = 0; i < results.length(); i++) {
-            JSONObject in = results.getJSONObject(i); //
-            double rating = in.getDouble("rating");
+            JSONObject in = results.getJSONObject(i);
+
+            float rating = in.getFloat("rating");
             String formated_address = in.getString("formatted_address");
             String name = in.getString("name");
-            if (rating >= Config.MIN_RATING){
-                System.out.println(rating + "\t" + formated_address + "\t" + name);
-
+            if (rating > maxRating){
+                data.setName(name);
+                data.setRating(rating);
+                data.setFormatted_address(formated_address);
+                maxRating = rating;
             }
-            PizzaData data= new PizzaData();
-            data.setName(name);
-            data.setRating((float) rating);
-
-            data.setFormatted_address(formated_address);
-            notifyObservers(data);
         }
-
-
-
+        notifyObservers(data);
     }
 }
 
